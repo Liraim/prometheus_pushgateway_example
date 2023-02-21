@@ -28,6 +28,24 @@ services:
     networks:
       - back-tier
     restart: always
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+    networks:
+      - back-tier
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - back-tier
+      - front-tier
 
   grafana:
     image: grafana/grafana

@@ -13,3 +13,13 @@ datasources:
     type: prometheus
     access: proxy
     url: http://prometheus.:9090
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: db.:5432
+    database: test
+    user: postgres
+    secureJsonData:
+      password: 'example'
+    jsonData:
+      sslmode: 'disable'
